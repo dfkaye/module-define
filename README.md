@@ -18,11 +18,20 @@ command line.
 
 __from node command line__
 
-    cd ./module-define/test/node
-  
-    node index.js
+    cd ./module-define
     
+    npm test
+
+    node test/node
+    node test/node/index
+    node ./test/node/index.js
     
+Running tests with travis ci
+============================
+
+First repo of mine to do this - http://about.travis-ci.org/docs/user/getting-started/
+
+
 Browser tests with testem
 =========================
 

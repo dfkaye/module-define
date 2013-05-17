@@ -25,7 +25,7 @@ function define(id) {
         location = path.resolve(location);;
     }
     if (module.id.indexOf(location) !== module.id.length - location.length) {
-        throw new Error('id \"' + location + '\" wrongly defined for module at ' + module.id);
+        throw new Error('id \"' + id + '\" wrongly defined for module at ' + module.id);
     }
     
     return function (fn) {
@@ -51,10 +51,10 @@ function importScripts() {
     [].slice.call(arguments).forEach(function(id) {
         var location = id;
         console.log('__dirname :' + __dirname)
-        console.log('resolve ' + location + ' to ' + path.resolve(location));
+        console.log('resolve ' + location + ' to ' + path.resolve(__dirname + location));
                
         if (location.charAt(0) == '.') {
-            location = path.resolve(location);;
+            location = path.resolve(__dirname + location);;
         }
         
         console.log('path: ' + location)

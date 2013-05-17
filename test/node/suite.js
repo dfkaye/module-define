@@ -1,5 +1,17 @@
-
-importScripts('tape', 'path', './foo')
+/*
+ * Concept:
+ * The fact that the node test suite runs at all proves the concept that the module.define and 
+ * importScripts boilerplate can be used to import files that don't use the boilerplate themselves 
+ * (like the tape testing package), and can be used multiple times, in the same file, mimicking the 
+ * script concatenation strategy used in browser web applications.
+ *
+ * Code noise:
+ * importScripts() paths must either be npm module names or top-directory relative paths.
+ * module.require() inside the the define callback can use module-relative paths.
+ *
+ */
+ 
+importScripts('tape', 'path')
 
 module.define('suite')(function(module) {
 
@@ -32,36 +44,81 @@ module.define('suite')(function(module) {
     });
 })
 
-importScripts('tape', './foo')
+/*
+ * foo returns 'foo'
+ */
+importScripts('tape', '../../test/node/foo')
 
 module.define('suite')(function(module) {
 
     var test = module.require('tape');
 
     test('foo', function (t) {
+    
       var foo = module.require('./foo');
       
       t.equal(typeof foo, 'function');
-      
-      foo()
+      t.equal(foo(), 'foo');
+
       t.end();
     });
 })
 
-
-importScripts('tape', './bar/bar')
+/*
+ * bar requires foo, returns 'foo:bar'
+ */
+importScripts('tape', '../../test/node/bar/bar')
 
 module.define('suite')(function(module) {
 
     var test = module.require('tape');
 
     test('bar', function (t) {
+    
       var bar = module.require('./bar/bar');
       
       t.equal(typeof bar, 'function');
-      
-      bar()
+      t.equal(bar(), 'foo:bar');
+
       t.end();
     });
 })
 
+
+/*
+ * filename vs. module.define name mismatches
+ */
+;(function () {
+    var test = module.require('tape');
+    
+    test('catch "badname" mismatch in bad-name.js', function (t) {
+            
+        try {
+          importScripts('tape', '../../test/node/bad-name')
+          t.fail('should have bonked on badname mismatch');
+        } catch (err) {
+          t.ok(err, 'importScripts threw an exception on bad-name.js vs "badname" mismatch')
+        }
+        
+        t.end();
+    })
+}())
+
+module.define('suite')(function(module) {
+
+    var test = module.require('tape');
+
+    test('catch "badname" mismatch in bad-name.js', function (t) {
+    
+      var path = module.require('path');
+     
+      try {
+        module.require('./bad-name.js');
+        t.fail('should have bonked on badname mismatch');
+      } catch(err) {
+        t.ok(err, 'require threw an exception on bad-name.js vs "badname" mismatch')
+      }
+      
+      t.end();
+    });
+})

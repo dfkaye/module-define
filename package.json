@@ -18,18 +18,10 @@
     "url": "git://github.com/dfkaye/module-define.git"
   },
   "devDependencies": {
-    "tape": "~0.2.2"
+    "tape": "~1.0.1"
   },
-  "testling": {
-    "files": "./test/node/index.js",  
-    "browsers" : [
-      "ie/6..latest",
-      "chrome/20..latest",
-      "firefox/10..latest",
-      "safari/latest",
-      "opera/11.0..latest",
-      "iphone/6", "ipad/6"
-    ]
+  "scripts": {
+    "test": "node ./test/node/index.js"
   },
   "main": "./index.js"
 }

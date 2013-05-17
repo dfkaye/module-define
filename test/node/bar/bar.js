@@ -6,16 +6,11 @@ importScripts('path', '../../test/node/foo')
 
 module.define('bar')(function(module) {
 
-    console.log('bar defined');
-    
+    var foo = module.require('../foo');
+
     module.exports = bar;
     
     function bar() {
-        console.log('bar exported')
-        console.log('has foo: ' + foo());
-        
-        return true;
-    }
-    
-    var foo = module.require('../foo');
+        return foo() + ':' + 'bar';
+    }    
 })
