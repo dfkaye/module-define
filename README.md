@@ -20,7 +20,7 @@ __from node command line__
 
     cd ./module-define/test/node
   
-    node suite.js
+    node index.js
     
     
 Browser tests with testem
