@@ -1,16 +1,6 @@
 /*
- * Concept:
- * The fact that the node test suite runs at all proves the concept that the module.define and 
- * importScripts boilerplate can be used to import files that don't use the boilerplate themselves 
- * (like the tape testing package), and can be used multiple times, in the same file, mimicking the 
- * script concatenation strategy used in browser web applications.
- *
- * Code noise:
- * importScripts() paths must either be npm module names or top-directory relative paths.
- * module.require() inside the the define callback can use module-relative paths.
- *
+ * That these tests run at all is the first verification.
  */
- 
 importScripts('tape', 'path')
 
 module.define('suite')(function(module) {
@@ -83,7 +73,6 @@ module.define('suite')(function(module) {
       t.end();
     });
 })
-
 
 /*
  * filename vs. module.define name mismatches

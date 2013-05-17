@@ -12,8 +12,19 @@ Why
 See my gist: [importScripts proposal](https://gist.github.com/dfkaye/5356885)
 
 
-Node.js tests with tape
-=======================
+Node.js shim
+============
+
+The fact that the node test suite runs at all proves the concept that the 
+module.define() and importScripts() boilerplate can be used to import files that 
+don't use the boilerplate themselves (notably, the tape testing package itself), 
+and can be used multiple times, in the same file, mimicking the script 
+concatenation strategy used in browser web applications.
+
+__Code noise__
+
+- importScripts() paths must either be npm module names or top-directory relative paths.
+- module.require() inside the the define callback can use module-relative paths.
 
 Using [tape](https://github.com/substack/tape) to run tests from the node.js 
 command line.
@@ -22,11 +33,13 @@ __from node command line__
 
     cd ./module-define
     
+  any of these commands
+    
     npm test
-
     node test/node
     node test/node/index
     node ./test/node/index.js
+
     
 Running tests with travis ci
 ============================
