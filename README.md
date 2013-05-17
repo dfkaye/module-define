@@ -1,7 +1,7 @@
 module-define
 =============
 
-JavaScript shim for cross-platform module.define() and importScripts().
+__In PROGRESS__ JavaScript shim for cross-platform module.define() and importScripts().
 
 
 Why
