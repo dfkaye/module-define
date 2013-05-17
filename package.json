@@ -1,0 +1,35 @@
+{
+  "name" : "module-define",
+  "version" : "0.0.0",
+  "description": "JavaScript shim for cross-platform module.define() and importScripts()",
+  "homepage" : "https://github.com/dfkaye/module-define",
+  "author": {
+    "name": "david kaye (@dfkaye)",
+    "email" : "dfkaye@yahoo.com"
+  },
+  "contributors": [
+    {
+      "name": "david kaye (@dfkaye)",
+      "email": "dfkaye@yahoo.com"
+    } 
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/dfkaye/module-define.git"
+  },
+  "devDependencies": {
+    "tape": "~0.2.2"
+  },
+  "testling": {
+    "files": "./test/node/index.js",  
+    "browsers" : [
+      "ie/6..latest",
+      "chrome/20..latest",
+      "firefox/10..latest",
+      "safari/latest",
+      "opera/11.0..latest",
+      "iphone/6", "ipad/6"
+    ]
+  },
+  "main": "./index.js"
+}
