@@ -1,21 +1,29 @@
+travis Build Status
+-------------------
+
 [![Build Status](https://travis-ci.org/dfkaye/module-define.png)](https://travis-ci.org/dfkaye/module-define)
 
+First repo of mine to do this - http://about.travis-ci.org/docs/user/getting-started/ - really like it so far
+
 module-define
-=============
+-------------
 
-__In PROGRESS__ JavaScript shim for cross-platform module.define() and importScripts().
+__In PROGRESS__ JavaScript shim for cross-platform module.define() and importScripts() APIs.
 
-
-Why
-===
+describe
+--------
 
 See my gist: [importScripts proposal](https://gist.github.com/dfkaye/5356885)
 
+justify
+-------
 
-Node.js shim
-============
+Stop using source transformation tools - they make the problem worse, not better.
 
-The fact that the node test suite runs at all proves the concept that the 
+Node.js part is boilerplate
+---------------------------
+
+The fact that the node test suite runs *at all* proves the concept that the 
 module.define() and importScripts() boilerplate can be used to import files that 
 don't use the boilerplate themselves (notably, the tape testing package itself), 
 and can be used multiple times, in the same file, mimicking the script 
@@ -40,15 +48,13 @@ __from node command line__
     node test/node/index
     node ./test/node/index.js
 
-    
-Running tests with travis ci
-============================
-
-First repo of mine to do this - http://about.travis-ci.org/docs/user/getting-started/
-
-
 Browser tests with testem
-=========================
+-------------------------
 
 __TODO__
 
+
+The NPM part
+------------
+
+__TODO__
