@@ -21,11 +21,11 @@ function define(id) {
     if (location.charAt(0) == '.') {
         location = path.resolve(location);;
     }
-    
+        
     if (module.id.indexOf(location) !== module.id.length - location.length) {
         throw new Error('id \"' + id + '\" wrongly defined for module at ' + module.id);
     }
-    
+   
     return function (fn) {
         run.call(module, fn);
     }
@@ -53,7 +53,7 @@ function importScripts() {
         if (location.charAt(0) == '.') {
             location = path.resolve(__dirname + location);;
         }
-        
+
         require(location);
     });
 };

@@ -1,8 +1,7 @@
-
 /*
  * paths should be node_module names or app-relative paths
  */
-importScripts('path', '../../test/node/foo')
+importScripts('path', '../../test/node/foo');
 
 module.define('bar')(function(module) {
 
@@ -12,5 +11,5 @@ module.define('bar')(function(module) {
     
     function bar() {
         return foo() + ':' + 'bar';
-    }    
-})
+    }
+});

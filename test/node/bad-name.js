@@ -5,7 +5,7 @@ module.define('badname')(function(module) {
     module.exports = badname;
     
     function badname() {
-        console.log('badname exported')
+        console.log('badname exported');
         return true;
     }
-})
+});

@@ -1,4 +1,6 @@
-
+/*
+ * standalone foo module
+ */
 module.define('foo')(function(module) {
     
     module.exports = foo;
@@ -6,4 +8,4 @@ module.define('foo')(function(module) {
     function foo() {
         return 'foo';
     }
-})
+});
