@@ -13,15 +13,27 @@
       "email": "dfkaye@yahoo.com"
     } 
   ],
+  "devDependencies": {
+    "tape": "~1.0.1"
+  },
+  "main": "./index.js",
   "repository": {
     "type": "git",
     "url": "git://github.com/dfkaye/module-define.git"
   },
-  "devDependencies": {
-    "tape": "~1.0.1"
-  },
   "scripts": {
     "test": "node ./test/node/index.js"
   },
-  "main": "./index.js"
+  "testling": {
+    "files": "test/browser/*.js",
+    "browsers" : [
+        "ie/6..latest",
+        "chrome/16..latest",
+        "firefox/3.5..latest",
+        "safari/latest",
+        "opera/11.0..latest",
+        "iphone/6", 
+        "ipad/6"
+    ]
+  }  
 }
