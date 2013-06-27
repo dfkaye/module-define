@@ -51,6 +51,9 @@ __from node command line__
 Browser tests with testem
 -------------------------
 
+I've used QUnit with testem to verify that the module var does not conflict with
+QUnit's module() function.  Investigate the files in test/browser/ for example.
+
 __from node command line__
 
     cd ./module-define
