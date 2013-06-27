@@ -1,4 +1,4 @@
-travis Build Status
+Build Status
 -------------------
 
 [![Build Status](https://travis-ci.org/dfkaye/module-define.png)](https://travis-ci.org/dfkaye/module-define)
