@@ -1,0 +1,7 @@
+framework: qunit
+src_files:
+- browser/module-define.js
+- test/browser/index.js
+src_files_ignore:
+- node/**/*.js
+- index.js
