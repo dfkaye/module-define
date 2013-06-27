@@ -51,7 +51,16 @@ __from node command line__
 Browser tests with testem
 -------------------------
 
-__TODO__
+__from node command line__
+
+    cd ./module-define
+    testem
+    
+  then open a browser at localhost:7357
+  
+  __or__ use this to run all browsers testem can find automatically
+  
+    testem ci
 
 
 The NPM part
